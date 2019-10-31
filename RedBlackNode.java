@@ -74,7 +74,7 @@ public class RedBlackNode <Value extends Comparable<Value>>{
         return Math.max(1 + getLeft().getHeight(), 1 + getRight().getHeight());
     }
 
-    protected Value search(int key, RedBlackNode<Value> root) {
+    /*protected Value search(int key, RedBlackNode<Value> root) {
         if (root == null) {
             return null;
         }
@@ -86,7 +86,9 @@ public class RedBlackNode <Value extends Comparable<Value>>{
         }
         return search(key, root.getRight());
 
-    }
+    }*/
+
+
 
 
 }

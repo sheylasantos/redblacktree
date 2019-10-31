@@ -27,7 +27,7 @@ public class Pessoa implements Comparable {
                 return 0;
             }
         }
-        return -1;
+        return 1;
 
     }
 }
