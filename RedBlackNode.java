@@ -5,11 +5,11 @@ public class RedBlackNode <Value extends Comparable<Value>>{
     private RedBlackNode<Value> parent = null;
     private RedBlackNode<Value> left = null;
     private RedBlackNode<Value> right = null;
-    private NodeColor color;
+    private NodeColor color = NodeColor.red;
     //TODO Construtor
     public RedBlackNode(Value value) {
         this.value=value;
-        this.color = NodeColor.red;
+        //this.color = NodeColor.red;
     }
 
     public void setValue(Value value) {
@@ -43,6 +43,7 @@ public class RedBlackNode <Value extends Comparable<Value>>{
 
     public void setLeft(RedBlackNode<Value> left) {
         this.left = left;
+        this.left.setNodeColor(NodeColor.red);
     }
 
     public RedBlackNode<Value> getRight() {
@@ -51,6 +52,7 @@ public class RedBlackNode <Value extends Comparable<Value>>{
 
     public void setRight(RedBlackNode<Value> right) {
         this.right = right;
+        this.right.setNodeColor(NodeColor.red);
     }
 
     public int getBalanceFactor() {
@@ -64,10 +66,10 @@ public class RedBlackNode <Value extends Comparable<Value>>{
         if (getLeft() == null && getRight() == null){
             return 0;
         }
-        if (getLeft() == null && getRight().getNodeColor()==color.black){
+        if (getLeft() == null && getRight().getNodeColor()==NodeColor.black){
             return 1 + getRight().getHeight();
         }
-        if (getRight() == null && getLeft().getNodeColor()==color.black){
+        if (getRight() == null && getLeft().getNodeColor()==NodeColor.black){
             return 1 + getLeft().getHeight();
         }
 

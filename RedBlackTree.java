@@ -45,7 +45,17 @@ public class RedBlackTree <Value extends Comparable<Value>>{
 
         //if (balanceFactor>1){
             if (node.getNodeColor()!=NodeColor.black && este!=root){
-                if (node.getParent().getRight()!=node && node.getParent().getLeft()!=null){
+                /*if (node.getParent().getLeft()==null){
+                    if (este.getValue().compareTo(node.getParent().getRight().getValue())<0){
+                        node.getParent().setLeft(este);
+                    }else {
+                        RedBlackNode<Value> tmp = node.getParent().getRight();
+                        node.getParent().setRight(este);
+                        node.getParent().setLeft(tmp);
+                    }
+
+                }*/
+                 if (node.getParent().getRight()!=node && node.getParent().getLeft()!=null){
                     if (node.getParent().getRight().getNodeColor()==NodeColor.red){
                         //rotateRight(node);
                         node.setNodeColor(NodeColor.black);
@@ -65,6 +75,7 @@ public class RedBlackTree <Value extends Comparable<Value>>{
                     }
                 }
                 else if (node.getParent().getLeft()!=node && node.getParent().getRight()!=null){
+
                     if (node.getParent().getLeft().getNodeColor()==NodeColor.red){
                         node.setNodeColor(NodeColor.black);
                         node.getLeft().setNodeColor(NodeColor.red);
@@ -85,10 +96,10 @@ public class RedBlackTree <Value extends Comparable<Value>>{
 
             }
             int balanceFactor = node.getBalanceFactor();
-            if (balanceFactor==0){
-                return node;
-            }
-            return null;
+            //if (balanceFactor==0){
+            //    return node;
+            //}
+            return node;
 //            //TODO L
 //            if (node.getLeft().getBalanceFactor()>0){
 //                //TODO LL

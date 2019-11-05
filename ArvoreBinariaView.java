@@ -30,15 +30,25 @@ public class ArvoreBinariaView extends JComponent {
     }
     private void drawNode(Graphics g,RedBlackNode node, int x, int y, int level){
         if (node!=null){
+            if (node.getNodeColor()==NodeColor.red){
+                g.setColor(Color.red);
+            }else {
+                g.setColor(Color.black);
+            }
             g.drawOval(x,y,nodeSize,nodeSize);
             g.drawString(
                     String.valueOf(node.getValue()),
                     x+20,
                     y+20);
+
         }
 
         if (node.getLeft()!=null){
-            g.setColor(Color.red);
+            if (node.getLeft().getNodeColor()==NodeColor.red){
+                g.setColor(Color.red);
+            }else {
+                g.setColor(Color.black);
+            }
             int childX=x-offSet;
             int childY=y+offSet;
             g.drawLine(x+nodeSize/2,y+nodeSize,childX+nodeSize/2,childY);
@@ -47,7 +57,11 @@ public class ArvoreBinariaView extends JComponent {
         }
 
         if (node.getRight()!=null){
-            g.setColor(Color.blue);
+            if (node.getRight().getNodeColor()==NodeColor.red){
+                g.setColor(Color.red);
+            }else {
+                g.setColor(Color.black);
+            }
             int childX=x+offSet;
             int childY=y+offSet;
             g.drawLine(x+nodeSize/2,y+nodeSize,childX+nodeSize/3,childY);
