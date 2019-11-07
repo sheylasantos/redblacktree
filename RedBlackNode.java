@@ -51,7 +51,9 @@ public class RedBlackNode <Value extends Comparable<Value>>{
     }
 
     public void setRight(RedBlackNode<Value> right) {
+
         this.right = right;
+        //this.right.setParent(right.getParent());
         this.right.setNodeColor(NodeColor.red);
     }
 
